@@ -21,7 +21,6 @@ set(SOURCES
     src/fft-openmp.cpp
     src/utils.cpp
     src/ifft-seq.cpp
-    src/isImageBlurry.cpp
     # src/kolejny_plik.cpp
 )
 
