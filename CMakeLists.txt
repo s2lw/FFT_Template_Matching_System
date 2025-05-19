@@ -6,14 +6,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(OpenCV_DIR "D:/OpenCV/build")  # Dostosuj jeśli build jest w innym podfolderze
 
-# Znajdź pakiet OpenCV
+# Pakiet OpenCV
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-# Ustaw katalog include
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-# Ręczne wymienienie plików źródłowych (lepsze dla większej kontroli)
+# src
 set(SOURCES
     src/main.cpp
     src/utils.cpp
@@ -24,12 +23,11 @@ set(SOURCES
     # src/kolejny_plik.cpp
 )
 
-# Włącz OpenMP
+# OpenMP
 find_package(OpenMP REQUIRED)
 
-# Dodaj wykonywalny plik
+# executable
 add_executable(fft-project ${SOURCES})
 
-# Linkuj biblioteki (najpierw OpenMP, potem inne)
 target_link_libraries(fft-project PUBLIC OpenMP::OpenMP_CXX ${OpenCV_LIBS})
 
